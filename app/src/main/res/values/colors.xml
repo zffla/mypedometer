@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF0099cc</color>
+    <color name="colorPrimaryDark">#FF0099ee</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="fontBlue">#FF0099CC</color>
+    <color name="blueBack">#FF0099cc</color>
+    <color name="fontOrange">#FFFB8C21</color>
+    <color name="fontWhite">#FFFFFFFF</color>
+    <color name="fontGray">#FF949494</color>
+    <color name="fontBlack">#FF000000</color>
+    <color name="lightGray">#FFC4C4C4</color>
+    <color name="fontPink">#FFFF69B4</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name = "transparent">#00000000</color>
+    <color name="colorBtnBlue">#FF33b5e5</color>
+    <color name="colorBtnBlueNormal">#FF0099cc</color>
+    <color name="cardViewBackgroundColor">#FFF5F5F5</color>
+</resources>

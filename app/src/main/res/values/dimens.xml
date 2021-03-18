@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="show_size">30sp</dimen>
+    <dimen name="cardViewRadius">20dp</dimen>
+    <dimen name="cardViewElevation">4dp</dimen>
+</resources>

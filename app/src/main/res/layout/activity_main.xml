@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:textAlignment="center"
+        android:background="@color/blueBack"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CF计步器"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/show_calorie"
+                android:textColor="@color/fontGray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="活动时间"
+                android:textColor="@color/fontGray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="公里(km)"
+                android:textColor="@color/fontGray"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_calorie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/fontOrange"
+                android:textSize="24sp"
+                android:text="0.00"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/fontPink"
+                android:textSize="24sp"
+                android:text="00:00:00"/>
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/fontBlue"
+                android:textSize="24sp"
+                android:text="0.00"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_step_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        <com.v210.widgets.CircleProgressBar
+            android:id="@+id/circleProgressBar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center" />
+        -->
+
+        <TextView
+            android:id="@+id/tv_step_count"
+            android:layout_width="146dp"
+            android:layout_height="146dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_back"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/fontBlue"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/tv_step_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="目标:10000步"
+            android:textColor="@color/fontBlue"
+            android:textSize="12sp" />
+
+        <com.example.mypedometer.view.CircleProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:radius="90dp"
+            app:arcWidth="17dp"
+            />
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/btn_blue_selector"
+            android:minHeight="32dp"
+            android:minWidth="120dp"
+            android:text="重置"
+            android:textColor="#FFFFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_steps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:background="@color/cardViewBackgroundColor"
+                app:cardCornerRadius="@dimen/cardViewRadius"
+                app:cardElevation="@dimen/cardViewElevation"
+                android:layout_margin="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp">
+
+                    <TextView
+                        android:id="@+id/tv_steps_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:text="每日步数"
+                        android:textSize="18sp" />
+
+                    <lecho.lib.hellocharts.view.ColumnChartView
+                        android:id="@+id/preview_steps_chart"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_below="@id/tv_steps_title"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/tv_steps_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/preview_steps_chart"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_toRightOf="@id/tv_steps_today"
+                        android:gravity="bottom"
+                        android:text="1.12"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/preview_steps_chart"
+                        android:layout_alignBottom="@id/tv_steps_distance"
+                        android:layout_toRightOf="@id/tv_steps_distance"
+                        android:gravity="bottom"
+                        android:text="公里"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tv_steps_today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/preview_steps_chart"
+                        android:layout_alignBottom="@id/tv_steps_distance"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:text="Today"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_calorie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center"
+                android:background="@color/cardViewBackgroundColor"
+                app:cardCornerRadius="@dimen/cardViewRadius"
+                app:cardElevation="@dimen/cardViewElevation">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_calorie_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:text="每日消耗"
+                        android:textSize="18sp" />
+
+                    <lecho.lib.hellocharts.view.ColumnChartView
+                        android:id="@+id/preview_calorie_chart"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_below="@id/tv_calorie_title"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/tv_card_calorie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/preview_calorie_chart"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_toRightOf="@id/tv_today"
+                        android:gravity="bottom"
+                        android:text="121"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/preview_calorie_chart"
+                        android:layout_alignBottom="@id/tv_card_calorie"
+                        android:layout_toRightOf="@id/tv_card_calorie"
+                        android:gravity="bottom"
+                        android:text="千卡"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tv_today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/preview_calorie_chart"
+                        android:layout_alignBottom="@id/tv_card_calorie"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:text="Today"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
